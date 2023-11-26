@@ -1,6 +1,5 @@
-# installing flask with pop3
-
+#create a manifest that kills a process
 package { 'flask':
-  ensure   => '2.1.0',
-  provider => 'pip3',
+ensure   => '2.1.0',
+provider => 'pip3',
 }
