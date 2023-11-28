@@ -2,5 +2,5 @@
 # install ngnix and display hello worlde
 apt-get -y update
 apt-get -y install nginx
-sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 service nginx start
