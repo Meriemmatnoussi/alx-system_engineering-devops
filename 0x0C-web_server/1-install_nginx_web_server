@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Install nginx with the -y option to assume "yes" for prompts
 sudo apt-get update
@@ -15,3 +15,4 @@ echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
 
 # Verify that Nginx is serving the page correctly
 curl localhost
+
