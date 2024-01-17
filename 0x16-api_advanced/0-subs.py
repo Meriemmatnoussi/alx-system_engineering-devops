@@ -1,14 +1,30 @@
 #!/usr/bin/python3
-"""Function that queries the Reddit API and returns the number
-of subscribers for a given subreddit. If an invalid
-subreddit is given, the function should return 0."""
+"""
+0-subs.py
+"""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {'User-Agent': 'custom'}
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code != 200:
+    """_summary_
+
+    Args:
+        subreddit (str): Subreddit name
+
+    Returns:
+        int: the number of subs in the passed subreddit
+    """
+    try:
+        headers = {
+            'User-Agent': 'My User Agent 1.0',
+        }
+        res = requests.get(
+            f"https://www.reddit.com/r/{subreddit}/about.json",
+            headers=headers)
+
+        resJson = res.json()
+        subCount = resJson['data']['subscribers']
+
+        return subCount
+    except KeyError:
         return 0
-    return response.json()['data']['subscribers']
